@@ -2,7 +2,12 @@
 	"name": "less-generator",
 	"displayName": "less-generator",
 	"description": "quickly generator less file",
+	"publisher": "pipidamowang",
 	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:Bravo123/less-generator.git"
+	},
 	"engines": {
 		"vscode": "^1.52.0"
 	},
@@ -21,21 +26,33 @@
 			}
 		],
 		"menus": {
-			"editor/context": [{
-				"when": "editorHasSelection && resourceLangId == frontend-page",
-				"command": "less-generator.generateLess"
-			}]
+			"editor/context": [
+				{
+					"when": "editorHasSelection && resourceLangId == frontend-page",
+					"command": "less-generator.generateLess"
+				}
+			]
 		},
-		"keybindings": [{
-			"command": "less-generator.generateLess",
-			"key": "ctrl+g",
-			"mac": "cmd+g",
-			"when": "editorHasSelection && resourceLangId == frontend-page"
-		}],
-		"languages": [{
-			"id": "frontend-page",
-			"extensions": [ ".html", ".jsx", ".tsx", ".vue", ".axml"]
-		}]
+		"keybindings": [
+			{
+				"command": "less-generator.generateLess",
+				"key": "ctrl+g",
+				"mac": "cmd+g",
+				"when": "editorHasSelection && resourceLangId == frontend-page"
+			}
+		],
+		"languages": [
+			{
+				"id": "frontend-page",
+				"extensions": [
+					".html",
+					".jsx",
+					".tsx",
+					".vue",
+					".axml"
+				]
+			}
+		]
 	},
 	"scripts": {
 		"lint": "eslint .",
