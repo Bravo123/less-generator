@@ -10,11 +10,10 @@ According to active text editor selections code to generate the same filename (.
 
 Convert a section of HTML code with Class dom node into a Less file
 
-## TODO
+## 0.0.2
 
-- [ ] Keep the style attribute on the dom node
-- [ ] Support JSX
-- [ ] Can filter the specified Class.(eg. ignore camelCased naming rules, usually developer use it to operate dom and use kebab-case to describe dom style)
+- [x] Support JSX
+- [x] Can filter the specified Class.(eg. ignore camelCased naming rules, usually developer use it to operate dom and use kebab-case to describe dom style)
 
 
 **Enjoy!**

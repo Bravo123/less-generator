@@ -3,7 +3,7 @@
 	"displayName": "less-generator",
 	"description": "quickly generator less file",
 	"publisher": "pipidamowang",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"repository": {
 		"type": "git",
 		"url": "git@github.com:Bravo123/less-generator.git"
@@ -22,14 +22,22 @@
 		"commands": [
 			{
 				"command": "less-generator.generateLess",
-				"title": "less-generator"
+				"title": "lessGenerator"
+			},
+			{
+				"command": "less-generator.generateLess.ignore",
+				"title": "lessGeneratorIgnoreCamelCased"
 			}
 		],
 		"menus": {
 			"editor/context": [
 				{
-					"when": "editorHasSelection && resourceLangId == frontend-page",
+					"when": "editorHasSelection",
 					"command": "less-generator.generateLess"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "less-generator.generateLess.ignore"
 				}
 			]
 		},
@@ -38,19 +46,7 @@
 				"command": "less-generator.generateLess",
 				"key": "ctrl+g",
 				"mac": "cmd+g",
-				"when": "editorHasSelection && resourceLangId == frontend-page"
-			}
-		],
-		"languages": [
-			{
-				"id": "frontend-page",
-				"extensions": [
-					".html",
-					".jsx",
-					".tsx",
-					".vue",
-					".axml"
-				]
+				"when": "editorHasSelection"
 			}
 		]
 	},

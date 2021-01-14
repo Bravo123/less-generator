@@ -20,40 +20,50 @@ const writeLessFile = (json, path) => {
   });
 }
 
-const parseHtml = (html) => {
-  console.log('parse')
+const parseHtml = (html, ignorecamelCased = false) => {
   let path = {};
   try {
     let json = html2json(html);
     json.child.forEach((child) => {
-      renderClassStr(child, path);
+      renderClassStr(child, path, ignorecamelCased);
     });
   } catch (error) {
-    console.log(error);    
+    console.log(error);
   }
   return path;
 }
 
-const renderClassStr = (NODE, obj) => {
+const renderClassStr = (NODE, obj, ignorecamelCased) => {
   try {
     let { node = "", child = [], tag = "", attr = {} } = NODE,
       classStr = "";
     // * 只处理nodeType为Element的类型 忽略text
     if (node.toLowerCase() == "element") {
+      // * 支持className jsx
+      attr.class = attr.class || attr.className;
       if (attr.class) {
-        classStr = Array.isArray(attr.class)
-          ? `.${attr.class.join(".")}`
-          : `.${attr.class}`;
+        if (!Array.isArray(attr.class)) {
+          attr.class = [attr.class];
+        }
+        attr.class.forEach(item => {
+          if (ignorecamelCased) {
+            if (!/^[a-z]+([A-Z]+[a-z]*)+$/.test(item)) {
+              classStr += `.${item}`;
+            }
+          } else {
+            classStr += `.${item}`;
+          }
+        })
       }
       if (classStr) {
         obj[classStr] = {};
       }
       child.forEach((item) => {
-        renderClassStr(item, classStr ? obj[classStr] : obj);
+        renderClassStr(item, classStr ? obj[classStr] : obj, ignorecamelCased);
       });
     }
   } catch (error) {
-  console.log(error);   
+    console.log(error);
   }
 };
 

@@ -21,10 +21,18 @@ function activate(context) {
 		let text = editor.document.getText(editor.selection);
 		let json = parseHtml(text);
 		writeLessFile(JSON.stringify(json), editor.document.uri.path);
-		vscode.window.showInformationMessage('complete!!!');
+	});
+
+	let disposableIgnore = vscode.commands.registerCommand('less-generator.generateLess.ignore', function () {
+		// The code you place here will be executed every time your command is executed
+		const editor = vscode.window.activeTextEditor;
+		let text = editor.document.getText(editor.selection);
+		let json = parseHtml(text, true);
+		writeLessFile(JSON.stringify(json), editor.document.uri.path);
 	});
 
 	context.subscriptions.push(disposable);
+	context.subscriptions.push(disposableIgnore);
 }
 exports.activate = activate;
 
