@@ -2,6 +2,9 @@
 
 quickly generator less flie
 
+select code -> cmd + g
+
+![ezgif.com-gif-maker.gif](https://upload.cc/i1/2021/01/15/Wrj1Dv.gif)
 ## Features
 
 According to active text editor selections code to generate the same filename (.less) file on the same folder

@@ -3,7 +3,7 @@
 	"displayName": "less-generator",
 	"description": "quickly generator less file",
 	"publisher": "pipidamowang",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"repository": {
 		"type": "git",
 		"url": "git@github.com:Bravo123/less-generator.git"
@@ -22,11 +22,11 @@
 		"commands": [
 			{
 				"command": "less-generator.generateLess",
-				"title": "lessGenerator"
+				"title": "less"
 			},
 			{
 				"command": "less-generator.generateLess.ignore",
-				"title": "lessGeneratorIgnoreCamelCased"
+				"title": "less:ignoreCamelCased"
 			}
 		],
 		"menus": {
