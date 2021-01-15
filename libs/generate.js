@@ -1,8 +1,6 @@
-const { writeFileSync } = require('fs');
+const {  appendFileSync } = require('fs');
+var os = require("os");
 const { html2json } = require('./html2json');
-// TODO 指定的命名格式的class不写进less文件  vscode 配置项
-// TODO jsx className不支持
-// TODO 内联元素 能不能带进less
 
 const writeLessFile = (json, path) => {
   // * 处理json
@@ -15,7 +13,7 @@ const writeLessFile = (json, path) => {
   path = path.split('/');
   let fileName = path.pop().split('.')[0];
   path = path.join('/');
-  writeFileSync(path + '/' + fileName + '.less', json, {}, (err) => {
+  appendFileSync(path + '/' + fileName + '.less', json + os.EOL, {}, (err) => {
     if (err) throw err;
   });
 }

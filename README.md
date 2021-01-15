@@ -18,5 +18,13 @@ Convert a section of HTML code with Class dom node into a Less file
 - [x] Support JSX
 - [x] Can filter the specified Class.(eg. ignore camelCased naming rules, usually developer use it to operate dom and use kebab-case to describe dom style)
 
+## 0.0.3
+
+Change command title and README.md
+
+## 0.0.4
+
+Append content instead of replace content when writing less file.
+
 
 **Enjoy!**
